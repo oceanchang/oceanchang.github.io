@@ -225,10 +225,9 @@ myblog
 
 <p>/usr/loca/nginx/ngix<br>/usr/loca/nginx/ngix.conf  </p>
 <p>/etc/supervisor/conf.d/myblog.conf<br>/etc/supervisord.conf  </p>
-<p>###为你的flask创建运行文件run.py  </p>
-<p><code>from app import app</code><br><code>if __name__ == &#39;__main__&#39;:</code><br> <code>app.run(host=‘0.0.0.0’, debug = True)</code>  </p>
-<p>###简单的flask启动程序<br><em>注意事项，一定要用<code>if __name__ == &#39;__main__’:</code>，否则在用gunicorn启动flask程序时会出现</em><br><code>error: [Errno 98] Address already in use这个错误</code></p>
-<p>##安装Gunicorn<br>Gunicorn (独角兽)是一个高效的Python WSGI Server,通常用它来运行 wsgi application(由我们自己编写遵循WSGI application的编写规范) 或者 wsgi framework(如Django,Paster),地位相当于Java中的Tomcat。</p>
+<h3 id="为你的flask创建运行文件run-py"><a href="#为你的flask创建运行文件run-py" class="headerlink" title="为你的flask创建运行文件run.py"></a>为你的flask创建运行文件run.py</h3><p><code>from app import app</code><br><code>if __name__ == &#39;__main__&#39;:</code><br> <code>app.run(host=‘0.0.0.0’, debug = True)</code>  </p>
+<h3 id="简单的flask启动程序"><a href="#简单的flask启动程序" class="headerlink" title="简单的flask启动程序"></a>简单的flask启动程序</h3><p><em>注意事项，一定要用<code>if __name__ == &#39;__main__’:</code>，否则在用gunicorn启动flask程序时会出现</em><br><code>error: [Errno 98] Address already in use这个错误</code></p>
+<h2 id="安装Gunicorn"><a href="#安装Gunicorn" class="headerlink" title="安装Gunicorn"></a>安装Gunicorn</h2><p>Gunicorn (独角兽)是一个高效的Python WSGI Server,通常用它来运行 wsgi application(由我们自己编写遵循WSGI application的编写规范) 或者 wsgi framework(如Django,Paster),地位相当于Java中的Tomcat。</p>
 <p>可以采用easy_install 或下载源码安装git clone git://github.com/benoitc/gunicorn.git</p>
 <p>但最好的方式是使用pip安装，因为可以卸载和管理</p>
 <p>  pip install gunicorn</p>
@@ -256,7 +255,7 @@ myblog
 
 此时你的flask程序已经能够正常运行了，下面的supervisor是一个守护程序  
 
-##安装配置Supervisor
+## 安装配置Supervisor
 
 yum可以直接安装Supervisor，需要注意的是Supervisor只支持Python2，所以不要在虚拟环境中使用pip安装supervisor。  
 
@@ -297,7 +296,7 @@ supervisorctl -c supervisor.conf stop [all]|[appname]      关闭指定/所有 s
 </pre>
 
 <p>上面由supervisor启动gunicorn安装配置完毕，下面配置nginx的反向代理</p>
-<p>##nginx 安装配置<br>nginx安装可以自己找其他资料<br>关于正向代理和反向代理的概念只是不同位置请求网络资源的不同说法，你用笔记本上网浏览网页通过的一个代理就叫正向代理，如果互联网过来的一个请求访问一个IDC机房的一个内网web服务，这个服务由nginx转进来就叫做反向代理，nginx 一般用于反向代理和负载均衡，这个IDC机房的web服务也可以直接用公网IP访问，但是为了解决高并发负载均衡的问题引入了nginx反向代理这个概念。</p>
+<h2 id="nginx-安装配置"><a href="#nginx-安装配置" class="headerlink" title="nginx 安装配置"></a>nginx 安装配置</h2><p>nginx安装可以自己找其他资料<br>关于正向代理和反向代理的概念只是不同位置请求网络资源的不同说法，你用笔记本上网浏览网页通过的一个代理就叫正向代理，如果互联网过来的一个请求访问一个IDC机房的一个内网web服务，这个服务由nginx转进来就叫做反向代理，nginx 一般用于反向代理和负载均衡，这个IDC机房的web服务也可以直接用公网IP访问，但是为了解决高并发负载均衡的问题引入了nginx反向代理这个概念。</p>
 <p>nginx配置文件</p>
 <p><pre><br>35server {<br>36         listen       5001;<br>37         server_name  localhost;<br>38         root       /opt/www/myblog/app;<br>39         access_log /opt/www/myblog/log/access_log;<br>40         error_log  /opt/www/myblog/log/error_log;<br>41<br>42         #charset koi8-r;<br>43<br>44         #access_log  logs/host.access.log  main;<br>45         # 处理静态资源:<br>46         location ~ ^\/static\/.*$ {<br>47             root /opt/www/myblog/app;<br>48         }<br>49<br>50<br>51         location / {<br>52             #root   html;<br>53             #index  index.html index.htm;<br>54             #请求转向本机ip:3721<br>55             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>56             proxy_set_header X-Real-IP $remote_addr;<br>57             proxy_set_header Host $host:5001;<br>58             proxy_redirect off;<br>59             proxy_pass <a href="http://127.0.0.1:3721" target="_blank" rel="external">http://127.0.0.1:3721</a>; # 这里是gunicorn监听的地址<br>60         }<br></pre><br>过程中，配置完配置文件重新启动nginx执行命令<br><code># /usr/local/nginx/nginx -c /usr/local/nginx/nginx.conf</code><br>遇到错误如下：<br><code>nginx: [emerg] bind() to 0.0.0.0:5001 failed (98: Address already in use)</code><br>原因是nginx已经在运行了，执行killall nginx后再次执行如下命令就正常运行起来了<br><code># /usr/local/nginx/nginx -c /usr/local/nginx/nginx.conf</code></p>
 
