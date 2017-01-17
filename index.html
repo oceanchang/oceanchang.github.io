@@ -249,19 +249,12 @@ myblog
 9 pidfile='/var/log/gunicorn/debug.log'
 10 loglevel='debug’
 </pre>
-运行：  
 
-`# gunicorn -c deploy_config.py run:app　　`  
-
-此时你的flask程序已经能够正常运行了，下面的supervisor是一个守护程序  
-
-## 安装配置Supervisor
-
-yum可以直接安装Supervisor，需要注意的是Supervisor只支持Python2，所以不要在虚拟环境中使用pip安装supervisor。  
-
-`yum install supervisor`  
-
-安装后创建配置文件/etc/supervisor/conf.d/myblog.conf  
+<p>运行:<br><code># gunicorn -c deploy_config.py run:app</code>  </p>
+<p>此时你的flask程序已经能够正常运行了，下面的supervisor是一个守护程序  </p>
+<h2 id="安装配置Supervisor"><a href="#安装配置Supervisor" class="headerlink" title="安装配置Supervisor"></a>安装配置Supervisor</h2><p>yum可以直接安装Supervisor，需要注意的是Supervisor只支持Python2，所以不要在虚拟环境中使用pip安装supervisor。  </p>
+<p><code>yum install supervisor</code>  </p>
+<p>安装后创建配置文件/etc/supervisor/conf.d/myblog.conf  </p>
 <pre>
 1 [program:myblog]
 2 command     = /usr/bin/python /usr/bin/gunicorn -c /opt/www/myblog/deploy_config.py run:app
