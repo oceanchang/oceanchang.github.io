@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: life | Ocean Chang&#39;s blog</title>
+  <title>Tag: flask | Ocean Chang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="some study note about myself and technology.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ocean Chang's blog">
-<meta property="og:url" content="http://yoursite.com/categories/programming/life/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/flask/index.html">
 <meta property="og:site_name" content="Ocean Chang's blog">
 <meta property="og:description" content="some study note about myself and technology.">
 <meta name="twitter:card" content="summary">
@@ -59,24 +59,30 @@
 			
 				<li><a href="/">home</a></li>
 	        
-				<li><a href="/categories/programming">programming</a></li>
-	        
 				<li><a href="/categories/life">life</a></li>
+	        
+				<li><a href="/categories/development">programming</a></li>
+	        
+				<li><a href="/categories/architecture-design">architecture-design</a></li>
+	        
+				<li><a href="/categories/operation">operation</a></li>
+	        
+				<li><a href="/categories/other">other</a></li>
 	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">achives</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">frieds links</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">about me</a>
     			
             
 		</nav>
@@ -123,6 +129,12 @@
 			
 				
 			
+				
+			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -143,11 +155,17 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">home</a></li>
+					<li style="width: 16.666666666666668%"><a href="/">home</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/programming">programming</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/life">life</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/life">life</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/development">programming</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/architecture-design">architecture-design</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/operation">operation</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/other">other</a></li>
 		        
 				</ul>
 			</nav>
@@ -179,14 +197,14 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
       	<div class="article-meta">
-	      	<a href="/hello-world/" class="archive-article-date">
-  	<time datetime="2017-01-17T06:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-17</time>
+	      	<a href="/centos6-5系统gunicorn、supervisor、nginx部署flask【2016-11-20update】/" class="archive-article-date">
+  	<time datetime="2017-01-17T07:39:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-17</time>
 </a>
         </div>
     	 
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/hello-world/">Hello World</a>
+      <a class="archive-article-title" href="/centos6-5系统gunicorn、supervisor、nginx部署flask【2016-11-20update】/">centos6.5系统gunicorn、supervisor、nginx部署flask【2016-11-20update】</a>
     </h1>
   
 
@@ -197,7 +215,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">just soso</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
         		</li>
       		
 		</ul>
@@ -209,11 +231,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/programming/" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/life/" class="article-tag-list-link color5">life</a>
+        			<a href="/categories/operation/" class="article-tag-list-link color5">operation</a>
         		</li>
       		
 		</ul>
@@ -255,8 +273,8 @@
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
-		isCategory: true,
+		isTag: true,
+		isCategory: false,
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
@@ -290,15 +308,15 @@
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">achives</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">frieds links</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">about me</a></li>
       
         
     </ul>
@@ -319,7 +337,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">just soso</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">flask</a>
               </li>
             
             <div class="clearfix"></div>
