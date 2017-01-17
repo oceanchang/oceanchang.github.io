@@ -56,6 +56,8 @@
 		<nav class="header-menu">
 			<ul>
 			
+				<li><a href="/archives">archives</a></li>
+	        
 				<li><a href="/categories/development">programming</a></li>
 	        
 				<li><a href="/categories/architecture-design">architecture</a></li>
@@ -71,15 +73,9 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">achives</a>
-    			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">frieds links</a>
-    			
             
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">about me</a>
     			
             
 		</nav>
@@ -128,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -148,15 +146,17 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/categories/development">programming</a></li>
+					<li style="width: 16.666666666666668%"><a href="/archives">archives</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/architecture-design">architecture</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/development">programming</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/operation">operation</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/architecture-design">architecture</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/life">life</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/operation">operation</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/other">other</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/life">life</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/other">other</a></li>
 		        
 				</ul>
 			</nav>
@@ -441,7 +441,7 @@ supervisorctl -c supervisor.conf stop [all]|[appname]      关闭指定/所有 s
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
-		innerArchive: true,
+		innerArchive: false,
 		showTags: true
 	}
 </script>
@@ -455,15 +455,9 @@ supervisorctl -c supervisor.conf stop [all]|[appname]      关闭指定/所有 s
     
     
       
-      
-      
     
       
-      
-      
     
-      
-      
       
     
     
@@ -472,105 +466,18 @@ supervisorctl -c supervisor.conf stop [all]|[appname]      关闭指定/所有 s
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">achives</a></li>
-      
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">frieds links</a></li>
-      
         
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">about me</a></li>
       
         
     </ul>
   </div>
   <div class="tools-wrap">
     
-    	<section class="tools-section tools-section-all" q-show="innerArchive">
-        <div class="search-wrap">
-          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
-          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
-          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
-        </div>
-        <div class="widget tagcloud search-tag">
-          <p class="search-tag-wording">tag:</p>
-          <label class="search-switch">
-            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
-          </label>
-          <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">flask</a>
-              </li>
-            
-            <div class="clearfix"></div>
-          </ul>
-        </div>
-        <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
-            2、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: true
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>
-          </p>
-          <li class="search-li" q-repeat="items" q-show="isShow">
-            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
-            <p class="search-time">
-              <i class="icon-calendar icon"></i>
-              <span q-text="date|dateformat"></span>
-            </p>
-            <p class="search-tag">
-              <i class="icon-price-tags icon"></i>
-              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
-            </p>
-          </li>
-        </ul>
-    	</section>
-    
 
     
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="https://github.com/oceanchang" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>my github</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">Enjoy life, discover self and explore the world!</div>
-  	  	
-    	</section>
     
   </div>
   
