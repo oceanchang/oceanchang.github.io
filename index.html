@@ -269,17 +269,12 @@ myblog
 11 stdout_logfile_backups  = 10
 12 stdout_logfile          = /opt/www/myblog/log/myblog.log
 </pre>
-创建配置文件后修改/etc/supervisord.conf将刚才的配置文件包含进来
 
-; 包含其他的配置文件
-`[include]`  
-`files = /etc/supervisor/conf.d/*.conf    ; 可以是 *.conf 或 *.ini`  
-
-配置完成后启动生效
-
-`# supervisord -c /etc/supervisord.conf`
-
-基本用法
+<p>创建配置文件后修改/etc/supervisord.conf将刚才的配置文件包含进来  </p>
+<p>; 包含其他的配置文件<br><code>[include]</code><br><code>files = /etc/supervisor/conf.d/*.conf    ; 可以是 *.conf 或 *.ini</code>  </p>
+<p>配置完成后启动生效  </p>
+<p><code># supervisord -c /etc/supervisord.conf</code>  </p>
+<p>基本用法  </p>
 <pre>
 supervisord -c supervisor.conf                             通过配置文件启动supervisor
 supervisorctl -c supervisor.conf status                    察看supervisor的状态
