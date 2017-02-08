@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/centos6-5-gunicorn-supervisor-nginx-flask-2016-11-20-update/index.html">
 <meta property="og:site_name" content="Ocean Chang's blog">
 <meta property="og:description" content="python版本2.7.9我的flask涉及到配置需要说明的文件目录如下">
-<meta property="og:updated_time" content="2017-01-17T08:42:59.000Z">
+<meta property="og:updated_time" content="2017-02-08T08:24:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos6.5系统gunicorn、supervisor、nginx部署  flask【2016-11-20update】">
 <meta name="twitter:description" content="python版本2.7.9我的flask涉及到配置需要说明的文件目录如下">
@@ -192,26 +192,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>python版本2.7.9<br>我的flask涉及到配置需要说明的文件目录如下<br><a id="more"></a></p>
-<pre>
-myblog
-|
-+- app/
-|   |
-|   +- __init__.py
-|   |
-|   +- static/
-|   |
-|   +- templates/
-|   |
-|   +- views/
-|   |
-+- run.py
-|
-+- deploy_config.py
-|
-+- config.py
-</pre>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">myblog</div><div class="line">|</div><div class="line">+- app/</div><div class="line">|   |</div><div class="line">|   +- __init__.py</div><div class="line">|   |</div><div class="line">|   +- static/</div><div class="line">|   |</div><div class="line">|   +- templates/</div><div class="line">|   |</div><div class="line">|   +- views/</div><div class="line">|   |</div><div class="line">+- run.py</div><div class="line">|</div><div class="line">+- deploy_config.py</div><div class="line">|</div><div class="line">+- config.py</div></pre></td></tr></table></figure>
 <p>/usr/loca/nginx/ngix<br>/usr/loca/nginx/ngix.conf  </p>
 <p>/etc/supervisor/conf.d/myblog.conf<br>/etc/supervisord.conf  </p>
 <h3 id="为你的flask创建运行文件run-py"><a href="#为你的flask创建运行文件run-py" class="headerlink" title="为你的flask创建运行文件run.py"></a>为你的flask创建运行文件run.py</h3><p><code>from app import app</code><br><code>if __name__ == &#39;__main__&#39;:</code><br> <code>app.run(host=‘0.0.0.0’, debug = True)</code>  </p>
