@@ -6,17 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://oceanchang.github.io">
-  <title>Archives: 2017 | Oceanbj&#39;s blog</title>
+  <title>从十个问题重学PHP (一) 错误和异常的区别 | Oceanbj&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="some study note about myself and technology.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Oceanbj's blog">
-<meta property="og:url" content="https://oceanchang.github.io/archives/2017/index.html">
+  <meta name="description" content="author：oceanbj； created：2017-03-02； last update；2017-03-03
+
+问题：异常和错误的有什么区别？php错误处理和异常处理的说明如下，但二者有什么不同？分别在什么时候使用？
+PHP 错误处理基本的错误处理，使用 die()可以通过 set_error_handler() 设置，使用自定义的函数处理所有错误。使用 trigger_error()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从十个问题重学PHP (一) 错误和异常的区别">
+<meta property="og:url" content="https://oceanchang.github.io/learn-php-from-question-error-exception-different/index.html">
 <meta property="og:site_name" content="Oceanbj's blog">
-<meta property="og:description" content="some study note about myself and technology.">
+<meta property="og:description" content="author：oceanbj； created：2017-03-02； last update；2017-03-03
+
+问题：异常和错误的有什么区别？php错误处理和异常处理的说明如下，但二者有什么不同？分别在什么时候使用？
+PHP 错误处理基本的错误处理，使用 die()可以通过 set_error_handler() 设置，使用自定义的函数处理所有错误。使用 trigger_error()">
+<meta property="og:updated_time" content="2017-03-03T02:45:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Oceanbj's blog">
-<meta name="twitter:description" content="some study note about myself and technology.">
+<meta name="twitter:title" content="从十个问题重学PHP (一) 错误和异常的区别">
+<meta name="twitter:description" content="author：oceanbj； created：2017-03-02； last update；2017-03-03
+
+问题：异常和错误的有什么区别？php错误处理和异常处理的说明如下，但二者有什么不同？分别在什么时候使用？
+PHP 错误处理基本的错误处理，使用 die()可以通过 set_error_handler() 设置，使用自定义的函数处理所有错误。使用 trigger_error()">
   
     <link rel="alternative" href="/atom.xml" title="Oceanbj&#39;s blog" type="application/atom+xml">
   
@@ -170,36 +180,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-learn-php-from-question-error-exception-different" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/learn-php-from-question-error-exception-different/" class="archive-article-date">
-  	<time datetime="2017-03-03T02:40:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/learn-php-from-question-error-exception-different/">从十个问题重学PHP (一) 错误和异常的区别</a>
+    <h1 class="article-title" itemprop="name">
+      从十个问题重学PHP (一) 错误和异常的区别
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/learn-php-from-question-error-exception-different/" class="archive-article-date">
+  	<time datetime="2017-03-03T02:40:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>author：oceanbj； created：2017-03-02； last update；2017-03-03</p>
+</blockquote>
+<h2 id="问题：异常和错误的有什么区别？"><a href="#问题：异常和错误的有什么区别？" class="headerlink" title="问题：异常和错误的有什么区别？"></a>问题：异常和错误的有什么区别？</h2><p>php错误处理和异常处理的说明如下，但二者有什么不同？分别在什么时候使用？</p>
+<h3 id="PHP-错误处理"><a href="#PHP-错误处理" class="headerlink" title="PHP 错误处理"></a>PHP 错误处理</h3><p>基本的错误处理，使用 <code>die()</code><br>可以通过 <code>set_error_handler()</code> 设置，使用自定义的函数处理所有错误。<br>使用 <code>trigger_error()</code> 错误触发函数<br>使用 <code>error_log()</code> 函数向指定的文件或远程发送错误记录<br><a id="more"></a><br>错误有报告级别而异常没有<br>E_WARNING，非致命的 run-time 错误。不暂停脚本执行。<br>E_NOTICE，Run-time 通知。脚本发现可能有错误发生，但也可能在脚本正常运行时发生。<br>E_USER_ERROR，致命的用户生成的错误。这类似于程序员使用 PHP 函数 trigger_error() 设置的 E_ERROR。<br>E_USER_WARNING，非致命的用户生成的警告。这类似于程序员使用 PHP 函数 trigger_error() 设置的 E_WARNING。<br>E_USER_NOTICE，用户生成的通知。这类似于程序员使用 PHP 函数 trigger_error() 设置的 E_NOTICE。<br>E_RECOVERABLE_ERROR，可捕获的致命错误。类似 E_ERROR，但可被用户定义的处理程序捕获。<br>E_ALL，所有错误和警告，除级别 E_STRICT 以外。</p>
+<h3 id="PHP-异常处理"><a href="#PHP-异常处理" class="headerlink" title="PHP 异常处理"></a>PHP 异常处理</h3><p>try, throw, catch<br>php.net参考手册说，PHP 5 has an exception model similar to that of other programming languages. An exception can be thrown, and caught (“catched”) within PHP. Code may be surrounded in a try block, to facilitate the catching of potential exceptions. Each try must have at least one corresponding catch or finally block.<br>Tip：The Standard PHP Library (SPL) provides a good number of built-in exceptions.<br>SPL provides a set of standard Exceptions.<br>•    BadFunctionCallException<br>•    BadMethodCallException<br>•    DomainException<br>•    InvalidArgumentException<br>•    LengthException<br>•    LogicException<br>•    OutOfBoundsException<br>•    OutOfRangeException<br>•    OverflowException<br>•    RangeException<br>•    RuntimeException<br>•    UnderflowException<br>•    UnexpectedValueException</p>
+<p>细节可以看一下参考资料，这里只说一下学习心得：异常是强类型的，类型安全的分支处理技术；而返回错误是其弱化的，不安全的版本。  自己简单总结以下几点：<br>1、异常处理的代码更简洁可读；<br>2、在嵌套循环里使用异常能减少很多条件判断；<br>3、在复杂系统里使用异常能够简化大量错误码定义导致复杂的问题；<br>4、异常处理在某些方面性能更好；<br>5、有错误预支时才用try／catch，不可预知错误使用try都是耍流氓。</p>
+<p>ref1， <a href="https://www.zhihu.com/question/36278363/answer/67013226" target="_blank" rel="external">https://www.zhihu.com/question/36278363/answer/67013226</a><br>ref2， <a href="http://www.laruence.com/2012/02/02/2515.html" target="_blank" rel="external">http://www.laruence.com/2012/02/02/2515.html</a><br>ref3， <a href="https://shipilev.net/blog/2014/exceptional-performance/" target="_blank" rel="external">https://shipilev.net/blog/2014/exceptional-performance/</a>  </p>
+<h3 id="遗留问题，php-net手册里spl给出的代码异常没有报错，原因未知，待查"><a href="#遗留问题，php-net手册里spl给出的代码异常没有报错，原因未知，待查" class="headerlink" title="遗留问题，php.net手册里spl给出的代码异常没有报错，原因未知，待查"></a>遗留问题，php.net手册里spl给出的代码异常没有报错，原因未知，待查</h3><p><a href="http://php.net/manual/en/class.invalidargumentexception.php" target="_blank" rel="external">http://php.net/manual/en/class.invalidargumentexception.php</a></p>
+<pre><code>&lt;?php
+function tripleInteger($int)
+{
+  if(!is_int($int))
+    throw new InvalidArgumentException(&apos;tripleInteger function only accepts integers. Input was: &apos;.$int);
+  return $int * 3;
+}
+
+$x = tripleInteger(4); //$x == 12
+$x = tripleInteger(2.5); //exception will be thrown as 2.5 is a float
+$x = tripleInteger(&apos;foo&apos;); //exception will be thrown as &apos;foo&apos; is a string
+$x = tripleInteger(&apos;4&apos;); //exception will throw as &apos;4&apos; is also a string
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,7 +261,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -224,157 +274,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://oceanchang.github.io/learn-php-from-question-error-exception-different/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/oceanbj-study-notes-vuejs/" class="archive-article-date">
-  	<time datetime="2017-02-22T05:11:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/oceanbj-study-notes-vuejs/">学习笔记 - Vue.js</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/programming/" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/centos6-5-gunicorn-supervisor-nginx-flask/" class="archive-article-date">
-  	<time datetime="2017-01-17T08:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/centos6-5-gunicorn-supervisor-nginx-flask/">centos6.5系统gunicorn、supervisor、nginx部署flask</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/operation/" class="article-tag-list-link color5">operation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hello-world/" class="archive-article-date">
-  	<time datetime="2017-01-17T06:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/other/" class="article-tag-list-link color1">other</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/oceanbj-study-notes-vuejs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">学习笔记 - Vue.js</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="learn-php-from-question-error-exception-different" data-title="从十个问题重学PHP (一) 错误和异常的区别" data-url="https://oceanchang.github.io/learn-php-from-question-error-exception-different/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"oceanbj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -397,8 +394,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
